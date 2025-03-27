@@ -3,13 +3,26 @@ import { User } from "types/types";
 const { Pool } = pkg;
 
 export const pool = new Pool({
-  user: process.env.PG_user,
-  host: process.env.PG_host,
-  database: process.env.PG_database,
-  password: process.env.PG_password,
-  port: Number(process.env.PG_port) || 5432,
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: Number(process.env.PG_PORT) || 5432,
 });
-console.log("Haslo bazy>>>>>>>>>>>>>>> ", process.env.PG_password);
+console.log("Process:", process.env);
+export const poolonline = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+// export const pool = new Pool({
+//   user: "admin",
+//   host: "localhost",
+//   database: "workshop",
+//   password: "secret123",
+//   port: 5432,
+// });
 
 // async function createTables(): Promise<void> {
 //   try {

@@ -3,18 +3,19 @@ import { pool } from "../sqlQuerys";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    console.log("Typ danych:", typeof body.password);
+    console.log("Dane:", body.username, "-> ", body.password);
 
     if (!body.username || !body.password) {
       return Response.json({ error: "Brak danych" }, { status: 400 }); // 400 - Bad Request
     }
+    console.log("Działa tu.");
 
     const user = await pool.query(
       "SELECT * FROM users WHERE username=$1 AND password=$2",
       [body.username, body.password]
     );
 
-    if (!user) {
+    if (!user.rowCount) {
       return Response.json(
         { error: "Niepoprawne dane logowania" },
         { status: 401 }
@@ -26,6 +27,7 @@ export async function POST(request: Request) {
       { status: 200 }
     ); // 200 - OK
   } catch (e) {
-    return Response.json({ error: e?.message }, { status: 500 }); // 500 - Internal Server Error
+    console.log("To?", e);
+    return Response.json({ error: "Błąd połączenia" }, { status: 500 }); // 500 - Internal Server Error
   }
 }
