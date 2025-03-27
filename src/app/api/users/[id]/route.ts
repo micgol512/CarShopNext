@@ -1,15 +1,28 @@
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  const userId = params.id;
-  console.log("userId", userId);
-  // In a real application, fetch the user from a database
-  const user = { id: userId, name: "User " + userId };
-  // const user = {};
-  return Response.json({ user });
-}
+// export async function GET(
+//   request: Request,
+//   { params }: { params: { id: string } }
+// ) {
+//   const userId = params.id;
+//   console.log("userId", userId);
+//   // In a real application, fetch the user from a database
+//   const user = { id: userId, name: "User " + userId };
+//   // const user = {};
+//   return Response.json({ user });
+// }
+// import { NextRequest } from "next/server";
 
+// export async function GET(
+//   request: NextRequest,
+//   context: { params: { id: string } }
+// ) {
+//   const userId = context.params.id;
+//   console.log("userId", userId);
+
+//   // Symulacja pobrania użytkownika z bazy danych
+//   const user = { id: userId, name: "User " + userId };
+
+//   return Response.json({ user });
+// }
 // export async function GET(request: Request) {
 //   const { searchParams } = new URL(request.url);
 //   const name = searchParams.get("name");
