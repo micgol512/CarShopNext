@@ -1,3 +1,9 @@
+//metoda POST
+// Czy uzytkownik jest nie zalogowany? (czy nie ma tokena autoryzacyjnego)
+// Sprawdzenie danych czy są poprawne (czy nie sa puste).
+// Sprawdzenie czy uzytkownik istnieje w bazie danych.
+// Jak tak to zalogowanie uzytkownika: tj danie autoryzacji AuthNext
+
 import { pool } from "../sqlQuerys";
 
 export async function POST(request: Request) {

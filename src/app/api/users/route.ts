@@ -1,3 +1,15 @@
+//metoda GET. Sprawdzenie czy zalogowany użytkownik to admin.
+// jak tak to pobierze wszystkich userow jak nie to pobierze tylko swojego.
+
+//metoda PUT.
+// sprawdzenie poprawnościu danych tj.:
+//  - czy nazwa nie jest pusta (albo nie wystepuje)
+//  - czy hasło jest poprawne (czy nie jest puste)
+// dodanie roli USER oraz balance na 10000 na start. // określienie dokładniej balance
+
+//metoda DELETE.
+// usunięcie uzytkowniaka o ID z bazy danych. (mozliwy przycisk usuń konto czy coś takiego)
+
 export async function GET() {
   const users = [{ id: 1, name: "John" }];
   return Response.json({ users });

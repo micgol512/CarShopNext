@@ -6,17 +6,15 @@ export default function HomePage() {
   const { user } = useAuth();
   return (
     <>
-      <main>
-        {/* <!-- Widok startowy --> */}
-        <section id="home-view" className="view">
-          <h2>Witamy w Car Shop!</h2>
-          <p>
-            {user?.username
-              ? "Wybierz opcję z menu."
-              : "Zaloguj lub zarejestruj sie."}
-          </p>
-        </section>
-      </main>
+      {/* <!-- Widok startowy --> */}
+      <section id="home-view" className="view">
+        <h2>Witamy w Car Shop!</h2>
+        <p>
+          {user?.username
+            ? "Wybierz opcję z menu."
+            : "Zaloguj lub zarejestruj sie."}
+        </p>
+      </section>
     </>
   );
   //   return (<>
